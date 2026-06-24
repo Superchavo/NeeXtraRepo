@@ -4,7 +4,7 @@ Architectures: all
 Description: neextra repository
 Suite: neextra
 Date: Wed, 24 Jun 2026 00:42:17 UTC
-Components: extras
+Components: xtreleases
 MD5Sum:
  1f0b9494c8e7cf8a1784f6824a09f4c5 1268 extras/binary-all/Packages
  852f20eda2ffefb1e3cdc3cb38ce7866 848 extras/binary-all/Packages.xz
