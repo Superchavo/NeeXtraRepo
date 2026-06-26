@@ -23,15 +23,23 @@ echo -e "${PURPLE}────────────────────�
 echo -e "${YELLOW}[⚡] Preparation:${NC} Initializing installer components..."
 sleep 1
 
-# Step 1: Create the sources.list.d directory if it doesn't exist
+# Paso 1: Crear el directorio de fuentes si no existe
 mkdir -p $PREFIX/etc/apt/sources.list.d
 
-# Step 2: Write the repository line into neextra.list
-echo -e "${YELLOW}[⚙️] Configuration:${NC} Writing repository info to sources.list.d..."
-echo "deb [signed-by=https://superchavo.github.io/NeeXtraRepo/key.pub arch=all] https://superchavo.github.io/NeeXtraRepo neextra xtreleases" > $PREFIX/etc/apt/sources.list.d/neextra.list
+# Paso 2: Descargar e instalar el paquete .deb del Keyring
+echo -e "${YELLOW}[🔑] Keyring:${NC} Downloading and installing GPG keyring package..."
+curl -sL -o /tmp/neextra-keyring.deb https://superchavo.github.io/NeeXtraRepo/neextra-keyring_1.0.1_all.deb
+dpkg -i /tmp/neextra-keyring.deb
+rm /tmp/neextra-keyring.deb
 sleep 1
 
-# Step 3: Run apt update to sync the new packages
+# Paso 3: Escribir la línea del repositorio apuntando al archivo instalado por el .deb
+# (Asumiendo que tu paquete .deb mete la llave en $PREFIX/share/keyrings/neextra-archive-keyring.gpg o similar)
+echo -e "${YELLOW}[⚙] Configuration:${NC} Writing repository info to sources.list.d..."
+echo "deb [signed-by=$PREFIX/share/keyrings/neextra-archive-keyring.gpg arch=all] https://superchavo.github.io/NeeXtraRepo neextra xtreleases" > $PREFIX/etc/apt/sources.list.d/neextra.list
+sleep 1
+
+# Paso 4: Actualizar las listas de paquetes
 echo -e "\n${CYAN}[🚀] Syncing:${NC} Fetching package lists from NeeXtraRepo mirrors...\n"
 apt update
 
