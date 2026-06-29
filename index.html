@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeeXtra Repo | Linux Package Repository</title>
+    <style>
+        :root {
+            --bg-color: #1a1b26;
+            --terminal-bg: #16161e;
+            --text-color: #a9b1d6;
+            --prompt-user: #7aa2f7;
+            --prompt-dir: #9ece6a;
+            --accent-cmd: #e0af68;
+            --border-color: #414868;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'SF Mono', Monaco, Consolas, 'Fira Code', monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 750px;
+            margin-top: 10px;
+        }
+
+        /* Banner de Imagen */
+        .banner-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .banner-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        /* Ventana estilo Terminal Moderna/Clásica */
+        .terminal-window {
+            background-color: var(--terminal-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+
+        /* Barra superior de la ventana */
+        .terminal-header {
+            background-color: #1f2335;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .terminal-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .btn-close { background-color: #f7768e; }
+        .btn-minimize { background-color: #e0af68; }
+        .btn-maximize { background-color: #9ece6a; }
+
+        .terminal-title {
+            margin: 0 auto;
+            font-size: 0.85rem;
+            color: #565f89;
+            transform: translateX(-16px); /* Centrado óptico ignorando los botones */
+        }
+
+        /* Contenido de la consola */
+        .terminal-body {
+            padding: 20px;
+            font-size: 0.95rem;
+        }
+
+        .welcome-text {
+            color: #79a1f6;
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            border-top: 1px dashed var(--border-color);
+            margin: 20px 0;
+        }
+
+        /* Lista de aplicaciones */
+        h2 {
+            color: #2ac3de;
+            font-size: 1.2rem;
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .app-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 10px 0 20px 0;
+        }
+
+        .app-list li {
+            margin-bottom: 8px;
+            padding-left: 15px;
+            position: relative;
+        }
+
+        .app-list li::before {
+            content: "➔";
+            position: absolute;
+            left: 0;
+            color: #bb9af3;
+        }
+
+        /* Notas de configuración */
+        .config-box {
+            background-color: #24283b;
+            border-left: 4px solid #ff007c;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .config-box h3 {
+            margin: 0 0 5px 0;
+            color: #ff9e64;
+            font-size: 1rem;
+        }
+
+        /* Líneas de comando */
+        .command-line {
+            background-color: #101014;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid #24283b;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .code {
+            word-break: break-all;
+            font-size: 0.9rem;
+        }
+
+        .user { color: var(--prompt-user); }
+        .dir { color: var(--prompt-dir); }
+        .cmd { color: var(--accent-cmd); }
+
+        .copy-btn {
+            background-color: #1f2335;
+            border: 1px solid var(--border-color);
+            color: #a9b1d6;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-family: inherit;
+            transition: all 0.2s;
+            margin-left: 10px;
+        }
+
+        .copy-btn:hover {
+            background-color: #3b4261;
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #565f89;
+        }
+
+        footer a {
+            color: #7aa2f7;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Banner del Readme -->
+        <div class="banner-container">
+            <img src="https://i.ibb.co/nNbWgq3V/Nee-Xtra-REPO-24-6-2026.png" alt="NeeXtra REPO">
+        </div>
+
+        <!-- Consola Estilo Linux -->
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <div class="terminal-buttons">
+                    <div class="button btn-close"></div>
+                    <div class="button btn-minimize"></div>
+                    <div class="button btn-maximize"></div>
+                </div>
+                <div class="terminal-title">bash - neextra@repository</div>
+            </div>
+            
+            <div class="terminal-body">
+                <div class="welcome-text">
+                    Hello and welcome to the NeeXtra REPO! This repo contains 3 things (this will update as I get more apps):
+                </div>
+
+                <h2>📂📦 Available Packages</h2>
+                <ul class="app-list">
+                    <li><strong>TDM</strong></li>
+                    <li><strong>BetterSplash</strong></li>
+                    <li><strong>Termux-ezstore</strong></li>
+                </ul>
+
+                <div class="config-box">
+                    <h3>When you install these apps:</h3>
+                    <strong>BetterSplash:</strong> To set 2 apps that you want to execute, you can use: <code style="color: #73daca; background:#101014; padding:2px 4px; border-radius:3px;">setbettersplashprogram</code>
+                </div>
+
+                <div class="divider"></div>
+
+                <h2>📥 How to install</h2>
+                <div class="command-line">
+                    <div class="code">
+                        <span class="user">superchavo>:<span class="dir">~</span>$ <span class="cmd">git clone https://github.com/Superchavo/NeeXtraRepo.git && cd NeeXtraRepo && chmod +x installer.sh && ./installer.sh</span>
+                    </div>
+                    <button class="copy-btn" onclick="copyCommand()">Copy</button>
+                </div>
+
+            </div>
+        </div>
+
+        <footer>
+            Maintained by <a href="https://github.com/Superchavo" target="_blank">Superchavo</a> | Powered by GitHub Pages
+        </footer>
+
+    </div>
+
+    <script>
+        function copyCommand() {
+            const cmdText = "git clone https://github.com/Superchavo/NeeXtraRepo.git && cd NeeXtraRepo && chmod +x installer.sh && ./installer.sh";
+            navigator.clipboard.writeText(cmdText);
+            const btn = document.querySelector('.copy-btn');
+            btn.innerText = "Copied!";
+            setTimeout(() => {
+                btn.innerText = "Copy";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
+
