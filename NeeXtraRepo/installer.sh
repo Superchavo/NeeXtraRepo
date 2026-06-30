@@ -28,7 +28,7 @@ mkdir -p $PREFIX/etc/apt/sources.list.d
 
 # Paso 2: Escribir la línea del repositorio ignorando firmas con trusted=yes
 echo -e "${YELLOW}[⚙] Configuration:${NC} Writing repository info to sources.list.d..."
-echo "deb [trusted=yes arch=all] superchavo.is-a.dev neextra xtreleases" > $PREFIX/etc/apt/sources.list.d/neextra.list
+echo "deb [trusted=yes arch=all] superchavo.is-a.dev/NeeXtraRepo neextra xtreleases" > $PREFIX/etc/apt/sources.list.d/neextra.list
 sleep 1
 
 # Paso 3: Actualizar las listas de paquetes de forma directa
