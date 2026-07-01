@@ -1,147 +1,92 @@
+:root {
+    --bg-dark: #0f111a;
+    --window-header: #1d1f2b;
+    --text-main: #d1d5da;
+    --prompt-user: #88c0d0;
+    --prompt-dir: #81a1c1;
+    --accent: #b48ead;
+    --link: #88c0d0;
+}
+
 body {
-    background-color: #121214;
-    color: #e1e1e6;
-    font-family: 'Source Code Pro', 'Courier New', Courier, monospace;
+    background-color: #050505;
+    color: var(--text-main);
+    font-family: 'Fira Code', 'Courier New', monospace;
     margin: 0;
-    padding: 40px 20px;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 80vh;
+    min-height: 100vh;
 }
 
 .terminal-container {
     width: 100%;
-    max-width: 750px;
-    background-color: #1a1a1e;
-    border: 1px solid #2e2e35;
-    border-radius: 6px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    background-color: var(--bg-dark);
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
     overflow: hidden;
 }
 
-/* Encabezado estilo ventana de Linux */
 .terminal-header {
-    background-color: #242429;
-    padding: 10px 15px;
+    background-color: var(--window-header);
+    padding: 12px 16px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #2e2e35;
+    gap: 10px;
+    border-bottom: 1px solid #333;
 }
 
-.terminal-header .buttons {
-    display: flex;
-    gap: 6px;
+.buttons { display: flex; gap: 8px; }
+.buttons span { width: 12px; height: 12px; border-radius: 50%; }
+.close { background: #ff5f56; }
+.minimize { background: #ffbd2e; }
+.maximize { background: #27c93f; }
+
+.title { margin-left: 10px; font-size: 0.85rem; color: #777; }
+
+.terminal-body { padding: 30px; }
+
+.prompt-line { margin: 15px 0; font-size: 1rem; }
+.user { color: var(--prompt-user); font-weight: bold; }
+.dir { color: var(--prompt-dir); }
+
+.readme-content { margin-bottom: 30px; }
+.readme-content h2 { color: #fff; margin-bottom: 10px; }
+.badge-container { margin-bottom: 15px; }
+
+.projects-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    margin-top: 10px; 
 }
 
-.terminal-header .buttons span {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.close { background-color: #fc5753; }
-.minimize { background-color: #fdbc40; }
-.maximize { background-color: #33c748; }
-
-.terminal-header .title {
-    margin-left: 20px;
-    font-size: 0.85rem;
-    color: #a1a1aa;
-}
-
-/* Cuerpo de la terminal */
-.terminal-body {
-    padding: 25px;
-}
-
-.prompt-line {
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-}
-
-.prompt-line .user {
-    color: #5af78e;
-}
-
-.prompt-line .dir {
-    color: #57c7ff;
-}
-
-.readme-content {
-    background-color: #202024;
-    border-left: 3px solid #57c7ff;
-    padding: 5px 15px;
-    margin: 15px 0 30px 0;
-}
-
-.readme-content h2 {
-    margin: 0 0 10px 0;
-    font-size: 1.2rem;
-    color: #fff;
-}
-
-.readme-content p {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #c4c4cc;
-}
-
-/* Listado limpio de proyectos */
-.projects-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-.project-item {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: inherit;
+.project-item { 
+    display: flex; 
+    align-items: center; 
+    text-decoration: none; 
+    color: var(--text-main); 
     padding: 8px;
+    transition: 0.2s;
+}
+
+.project-item:hover { 
+    background: #1d1f2b; 
+    color: #fff;
     border-radius: 4px;
-    transition: background-color 0.2s;
 }
 
-.project-item:hover {
-    background-color: #242429;
+.item-icon { margin-right: 15px; font-size: 1.2rem; }
+.item-name { color: var(--accent); font-weight: bold; margin-right: 10px; }
+
+footer { 
+    padding: 20px 30px; 
+    display: flex; 
+    justify-content: space-between; 
+    border-top: 1px solid #222; 
+    font-size: 0.8rem; 
 }
 
-.item-icon {
-    font-size: 1.2rem;
-    margin-right: 12px;
-}
-
-.item-name {
-    color: #57c7ff;
-    font-weight: bold;
-    margin-right: 8px;
-}
-
-.item-desc {
-    color: #a1a1aa;
-    font-size: 0.9rem;
-}
-
-/* Footer de la ventana */
-footer {
-    padding: 15px 25px;
-    border-top: 1px dashed #2e2e35;
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    color: #71717a;
-}
-
-footer a {
-    color: #57c7ff;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
+footer a { color: var(--link); text-decoration: none; }
