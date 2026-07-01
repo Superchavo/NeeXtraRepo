@@ -8,18 +8,20 @@
 </head>
 <body>
 
-    <div class="terminal-container">
-        <!-- Barra superior estilo XDE (Plasma spinoff) -->
-        <div class="terminal-header">
-            <div class="buttons">
-                <span class="close"></span>
-                <span class="minimize"></span>
-                <span class="maximize"></span>
+    <div class="xde-window">
+        <!-- Barra superior integrada estilo XDE (Plasma puro) -->
+        <div class="xde-header">
+            <div class="xde-title-container">
+                <span class="title">XDE Console — u0_github@localhost</span>
             </div>
-            <div class="title">XDE Console — u0_github@localhost</div>
+            <!-- Botones geométricos de cheurón (Ángulo abajo, Ángulo arriba, Equis) -->
+            <div class="xde-buttons">
+                <span class="xde-btn minimize">&#8964;</span>
+                <span class="xde-btn maximize">&#8963;</span>
+                <span class="xde-btn close">&#10005;</span>
+            </div>
         </div>
 
-        <!-- Cuerpo de la ventana -->
         <main class="terminal-body">
             <div class="prompt-line">
                 <span class="user">u0_github@localhost</span>:<span class="dir">~</span>$ cat README.md
@@ -37,23 +39,25 @@
                 <span class="user">u0_github@localhost</span>:<span class="dir">~</span>$ ls -la projects/
             </div>
 
-            <!-- Lista de proyectos adaptada para el diseño XDE -->
             <div class="projects-list">
                 <a href="/NeeXtraRepo" class="project-item">
                     <span class="item-icon">📦</span>
-                    <span class="item-name">NeeXtraRepo/</span>
-                    <span class="item-desc">- Custom APT repository for Termux.</span>
+                    <div class="item-info">
+                        <span class="item-name">NeeXtraRepo/</span>
+                        <span class="item-desc">Custom APT repository for Termux tools.</span>
+                    </div>
                 </a>
 
                 <a href="https://scratch.mit.edu" target="_blank" class="project-item">
                     <span class="item-icon">🧩</span>
-                    <span class="item-name">ScratchProjects/</span>
-                    <span class="item-desc">- Advanced logic scripts and custom engines.</span>
+                    <div class="item-info">
+                        <span class="item-name">ScratchProjects/</span>
+                        <span class="item-desc">Advanced logic scripts and custom engines.</span>
+                    </div>
                 </a>
             </div>
         </main>
 
-        <!-- Footer limpio con tu badge estático de status -->
         <footer>
             <div class="footer-badge">
                 <img src="https://img.shields.io/badge/Status-Ready-3daee9?style=flat-square" alt="Status Ready">
