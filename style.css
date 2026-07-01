@@ -1,92 +1,77 @@
+/* XDE - A Plasma-inspired spinoff */
 :root {
-    --bg-dark: #0f111a;
-    --window-header: #1d1f2b;
-    --text-main: #d1d5da;
-    --prompt-user: #88c0d0;
-    --prompt-dir: #81a1c1;
-    --accent: #b48ead;
-    --link: #88c0d0;
+    --xde-bg: #1e1e24;
+    --xde-header: #292d3e;
+    --xde-accent: #3daee9;
+    --xde-text: #fcfcfc;
+    --xde-shadow: rgba(0,0,0,0.4);
 }
 
 body {
-    background-color: #050505;
-    color: var(--text-main);
-    font-family: 'Fira Code', 'Courier New', monospace;
+    background-color: #0b0c10;
+    color: var(--xde-text);
+    font-family: 'Cantarell', 'Segoe UI', sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 50px 20px;
     display: flex;
     justify-content: center;
-    min-height: 100vh;
 }
 
 .terminal-container {
     width: 100%;
-    max-width: 800px;
-    background-color: var(--bg-dark);
-    border-radius: 8px;
-    border: 1px solid #333;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    max-width: 700px;
+    background: var(--xde-bg);
+    border: 1px solid #444;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 10px 30px var(--xde-shadow);
     overflow: hidden;
 }
 
 .terminal-header {
-    background-color: var(--window-header);
-    padding: 12px 16px;
+    background: var(--xde-header);
+    padding: 10px 15px;
     display: flex;
     align-items: center;
-    gap: 10px;
     border-bottom: 1px solid #333;
 }
 
-.buttons { display: flex; gap: 8px; }
+.buttons { display: flex; gap: 6px; margin-right: 15px; }
 .buttons span { width: 12px; height: 12px; border-radius: 50%; }
-.close { background: #ff5f56; }
-.minimize { background: #ffbd2e; }
-.maximize { background: #27c93f; }
+.close { background: #ed4747; }
+.minimize { background: #f6b43d; }
+.maximize { background: #33c748; }
 
-.title { margin-left: 10px; font-size: 0.85rem; color: #777; }
+.title { font-size: 0.9rem; font-weight: bold; letter-spacing: 0.5px; color: #ccc; }
 
-.terminal-body { padding: 30px; }
+.terminal-body { padding: 25px; }
 
-.prompt-line { margin: 15px 0; font-size: 1rem; }
-.user { color: var(--prompt-user); font-weight: bold; }
-.dir { color: var(--prompt-dir); }
+.prompt-line { font-family: monospace; margin-bottom: 15px; color: #a1a1aa; }
+.user { color: #5af78e; }
+.dir { color: var(--xde-accent); }
 
-.readme-content { margin-bottom: 30px; }
-.readme-content h2 { color: #fff; margin-bottom: 10px; }
-.badge-container { margin-bottom: 15px; }
+.projects-list { display: grid; gap: 10px; margin-top: 20px; }
 
-.projects-list { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 15px; 
-    margin-top: 10px; 
-}
-
-.project-item { 
-    display: flex; 
-    align-items: center; 
-    text-decoration: none; 
-    color: var(--text-main); 
-    padding: 8px;
-    transition: 0.2s;
-}
-
-.project-item:hover { 
-    background: #1d1f2b; 
-    color: #fff;
+.project-item {
+    display: flex;
+    align-items: center;
+    background: #252936;
+    padding: 12px;
     border-radius: 4px;
+    text-decoration: none;
+    color: var(--xde-text);
+    border-left: 4px solid var(--xde-accent);
+    transition: transform 0.1s;
 }
 
-.item-icon { margin-right: 15px; font-size: 1.2rem; }
-.item-name { color: var(--accent); font-weight: bold; margin-right: 10px; }
+.project-item:hover { background: #2f3445; transform: scale(1.01); }
+.item-name { font-weight: bold; color: var(--xde-accent); margin: 0 10px; }
 
-footer { 
-    padding: 20px 30px; 
-    display: flex; 
-    justify-content: space-between; 
-    border-top: 1px solid #222; 
-    font-size: 0.8rem; 
+footer {
+    padding: 15px;
+    background: #191b22;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #555;
+    border-top: 1px solid #333;
 }
-
-footer a { color: var(--link); text-decoration: none; }

@@ -9,17 +9,17 @@
 <body>
 
     <div class="terminal-container">
-        <!-- Barra de estado superior estilo ventana Linux -->
+        <!-- Barra superior estilo XDE (Plasma spinoff) -->
         <div class="terminal-header">
             <div class="buttons">
                 <span class="close"></span>
                 <span class="minimize"></span>
                 <span class="maximize"></span>
             </div>
-            <div class="title">u0_github@localhost: ~</div>
+            <div class="title">XDE Console — u0_github@localhost</div>
         </div>
 
-        <!-- Contenido de la Terminal con tu README -->
+        <!-- Cuerpo de la ventana -->
         <main class="terminal-body">
             <div class="prompt-line">
                 <span class="user">u0_github@localhost</span>:<span class="dir">~</span>$ cat README.md
@@ -27,6 +27,9 @@
             
             <section class="readme-content">
                 <h2>Hi There!!! 👋</h2>
+                <div class="badge-container">
+                    <img src="https://img.shields.io/badge/I_Love-KDE-00e5ff?style=flat&logo=kde&logoColor=white" alt="I Love KDE">
+                </div>
                 <p>Hello and welcome to my Profile! I'm a KDE lover and also a Linux lover and I make things for Termux and Linux.</p>
             </section>
 
@@ -34,15 +37,14 @@
                 <span class="user">u0_github@localhost</span>:<span class="dir">~</span>$ ls -la projects/
             </div>
 
+            <!-- Lista de proyectos adaptada para el diseño XDE -->
             <div class="projects-list">
-                <!-- Proyecto 1: Tu Repositorio -->
                 <a href="/NeeXtraRepo" class="project-item">
                     <span class="item-icon">📦</span>
                     <span class="item-name">NeeXtraRepo/</span>
                     <span class="item-desc">- Custom APT repository for Termux.</span>
                 </a>
 
-                <!-- Proyecto 2: Scratch -->
                 <a href="https://scratch.mit.edu" target="_blank" class="project-item">
                     <span class="item-icon">🧩</span>
                     <span class="item-name">ScratchProjects/</span>
@@ -51,9 +53,14 @@
             </div>
         </main>
 
+        <!-- Footer limpio con tu badge estático de status -->
         <footer>
-            <div class="footer-status">STATUS: READY // 2026</div>
-            <div class="footer-link"><a href="https://github.com/Superchavo" target="_blank">github.com/Superchavo</a></div>
+            <div class="footer-badge">
+                <img src="https://img.shields.io/badge/Status-Ready-3daee9?style=flat-square" alt="Status Ready">
+            </div>
+            <div class="footer-link">
+                <a href="https://github.com/Superchavo" target="_blank">github.com/Superchavo</a>
+            </div>
         </footer>
     </div>
 
