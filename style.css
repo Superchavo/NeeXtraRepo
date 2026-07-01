@@ -1,7 +1,7 @@
 :root {
     --breeze-bg: #232629;
     --breeze-view: #1b1e20;
-    --breeze-header: #1b1e20; /* Integrado con el fondo, sin borde fuerte */
+    --breeze-header: #1b1e20;
     --breeze-text: #fcfcfc;
     --breeze-accent: #3daee9;
     --breeze-border: #4d5053;
@@ -27,9 +27,23 @@ body {
     border-radius: 4px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
     overflow: hidden;
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Header limpio con título a la izquierda */
+/* Clases para el manejo dinámico con JS */
+.xde-window.minimized {
+    transform: translateY(60px) scale(0.85);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.xde-window.maximized {
+    max-width: 100% !important;
+    width: 98vw;
+    height: 92vh;
+}
+
+/* Header limpio e integrado con el título completamente a la izquierda */
 .xde-header {
     background-color: var(--breeze-header);
     padding: 10px 16px;
@@ -37,6 +51,7 @@ body {
     justify-content: space-between;
     align-items: center;
     user-select: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
 }
 
 .xde-title-container {
@@ -44,7 +59,7 @@ body {
     color: #e0e0e0;
 }
 
-/* Botones con los ángulos correctos */
+/* Botones finos y minimalistas de Plasma Breeze */
 .xde-buttons {
     display: flex;
     gap: 4px;
@@ -57,7 +72,7 @@ body {
     width: 24px;
     height: 24px;
     font-size: 1rem;
-    font-weight: 200; /* Líneas finas */
+    font-weight: 200;
     color: #a1a2a3;
     cursor: pointer;
     border-radius: 3px;
@@ -74,21 +89,110 @@ body {
     color: #fff;
 }
 
-/* El resto se mantiene igual */
-.terminal-body { padding: 20px 25px; font-family: 'Fira Code', monospace; }
-.prompt-line { font-size: 0.95rem; margin-bottom: 12px; }
-.user { color: #2ecc71; font-weight: bold; }
-.dir { color: var(--breeze-accent); }
-.readme-content { background-color: rgba(255, 255, 255, 0.02); padding: 15px; border-radius: 4px; margin: 12px 0 25px 0; border: 1px solid rgba(255,255,255,0.05); }
-.readme-content h2 { margin: 0 0 10px 0; font-size: 1.15rem; }
-.readme-content p { margin: 0; color: #bdc3c7; }
-.badge-container { margin-bottom: 12px; }
-.projects-list { display: flex; flex-direction: column; gap: 10px; }
-.project-item { display: flex; align-items: center; background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 12px; border-radius: 4px; text-decoration: none; color: var(--breeze-text); }
-.project-item:hover { background-color: rgba(61, 174, 233, 0.08); border-color: var(--breeze-accent); }
-.item-icon { font-size: 1.3rem; margin-right: 15px; }
-.item-info { display: flex; flex-direction: column; }
-.item-name { font-weight: bold; color: var(--breeze-accent); }
-.item-desc { color: #95a5a6; font-size: 0.85rem; }
-footer { padding: 12px 25px; background-color: var(--breeze-header); border-top: 1px solid rgba(0, 0, 0, 0.2); display: flex; justify-content: space-between; font-size: 0.8rem; }
-footer a { color: var(--breeze-accent); text-decoration: none; }
+/* Cuerpo interno de la terminal */
+.terminal-body {
+    padding: 20px 25px;
+    font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+.prompt-line {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+}
+
+.user {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.dir {
+    color: var(--breeze-accent);
+}
+
+.readme-content {
+    background-color: rgba(255, 255, 255, 0.02);
+    padding: 15px;
+    border-radius: 4px;
+    margin: 12px 0 25px 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.readme-content h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.15rem;
+}
+
+.readme-content p {
+    margin: 0;
+    color: #bdc3c7;
+    line-height: 1.5;
+}
+
+.badge-container {
+    margin-bottom: 12px;
+}
+
+/* Contenedores de proyectos */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--breeze-text);
+    transition: all 0.2s;
+}
+
+.project-item:hover {
+    background-color: rgba(61, 174, 233, 0.08);
+    border-color: var(--breeze-accent);
+    transform: translateX(4px);
+}
+
+.item-icon {
+    font-size: 1.3rem;
+    margin-right: 15px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-weight: bold;
+    color: var(--breeze-accent);
+}
+
+.item-desc {
+    color: #95a5a6;
+    font-size: 0.85rem;
+}
+
+/* Pie de la ventana */
+footer {
+    padding: 12px 25px;
+    background-color: var(--breeze-header);
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: var(--breeze-accent);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +8,15 @@
 </head>
 <body>
 
-    <div class="xde-window">
-        <!-- Barra superior integrada estilo XDE (Plasma puro) -->
+    <div class="xde-window" id="xdeWindow">
         <div class="xde-header">
             <div class="xde-title-container">
                 <span class="title">XDE Console — u0_github@localhost</span>
             </div>
-            <!-- Botones geométricos de cheurón (Ángulo abajo, Ángulo arriba, Equis) -->
             <div class="xde-buttons">
-                <span class="xde-btn minimize">&#8964;</span>
-                <span class="xde-btn maximize">&#8963;</span>
-                <span class="xde-btn close">&#10005;</span>
+                <span class="xde-btn minimize" id="btnMinimize" title="Minimizar">&#8964;</span>
+                <span class="xde-btn maximize" id="btnMaximize" title="Maximizar">&#8963;</span>
+                <span class="xde-btn close" id="btnClose" title="Cerrar">&#10005;</span>
             </div>
         </div>
 
@@ -48,7 +46,7 @@
                     </div>
                 </a>
 
-                <a href="https://scratch.mit.edu" target="_blank" class="project-item">
+                <a href="https://scratch.mit.edu/users/superchavo/" target="_blank" class="project-item">
                     <span class="item-icon">🧩</span>
                     <div class="item-info">
                         <span class="item-name">ScratchProjects/</span>
@@ -68,5 +66,6 @@
         </footer>
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
